@@ -1,8 +1,7 @@
-import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import accountImg from "../../assets/men-s-clothing-hanger-fashion-store_795422-8373.avif";
-import { TabsTrigger } from "@radix-ui/react-tabs";
-import Orders from "@/components/shopping-view/Orders";
 import Address from "@/components/shopping-view/Address";
+import ShoppingOrders from "@/components/shopping-view/ShoppingOrders";
 
 export default function ShoppingAccount() {
   return (
@@ -23,7 +22,7 @@ export default function ShoppingAccount() {
               <TabsTrigger value="address">Address</TabsTrigger>
             </TabsList>
             <TabsContent value="orders">
-              <Orders />
+              <ShoppingOrders />
             </TabsContent>
             <TabsContent value="address">
               <Address />
