@@ -7,10 +7,29 @@ export default function AddressCard({
   addressInfo,
   handleDeleteAddress,
   handleEditAddress,
+  setCurrentSelectedAddress,
+  selectedId,
 }) {
+  console.log(selectedId, addressInfo?._id, "selectedId");
+
   return (
-    <Card>
-      <CardContent className="grid p-4 gap-4">
+    <Card
+      onClick={
+        setCurrentSelectedAddress
+          ? () => setCurrentSelectedAddress(addressInfo)
+          : null
+      }
+      className={`cursor-pointer ${
+        selectedId?._id === addressInfo?._id
+          ? "border-red-700 border-[3.5px]"
+          : "border-black"
+      }`}
+    >
+      <CardContent
+        className={`${
+          selectedId === addressInfo?._id ? "border-black" : ""
+        }grid p-4 gap-4`}
+      >
         <Label>Address: {addressInfo?.address}</Label>
         <Label>City: {addressInfo?.city}</Label>
         <Label>Pincode: {addressInfo?.pincode}</Label>

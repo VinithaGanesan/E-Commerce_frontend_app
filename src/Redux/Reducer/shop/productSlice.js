@@ -3,27 +3,26 @@ import axios from "axios";
 
 export const fetchAllFilteredProducts = createAsyncThunk(
   "/product/fetchAllFilteredProducts",
-  async ({filterParams, sortParams}) => {
-
+  async ({ filterParams, sortParams }) => {
     const query = new URLSearchParams({
       ...filterParams,
-      sortBy: sortParams
-    })
+      sortBy: sortParams,
+    });
 
     const response = await axios.get(
-      `http://localhost:5000/api/shop/products/get-allproducts?${query}`
+      `${
+        import.meta.env.VITE_API_URL
+      }/api/shop/products/get-allproducts?${query}`
     );
     return response?.data;
   }
 );
 
-
 export const fetchProductDetails = createAsyncThunk(
   "/product/fetchProductDetails",
   async (id) => {
-
     const response = await axios.get(
-      `http://localhost:5000/api/shop/products/get-allproducts/${id}`
+      `${import.meta.env.VITE_API_URL}/api/shop/products/get-allproducts/${id}`
     );
     return response?.data;
   }
@@ -34,12 +33,12 @@ const ShoppingProductSlice = createSlice({
   initialState: {
     isLoading: false,
     productList: [],
-    productDetails: null
+    productDetails: null,
   },
   reducers: {
     setProductDetails: (state) => {
       state.productDetails = null;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -64,7 +63,7 @@ const ShoppingProductSlice = createSlice({
       .addCase(fetchProductDetails.rejected, (state, action) => {
         state.isLoading = false;
         state.productDetails = null;
-      })
+      });
   },
 });
 
