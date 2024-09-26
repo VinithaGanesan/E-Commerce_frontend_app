@@ -44,10 +44,10 @@ export default function ShoppingOrderDetailsView({ orderDetails }) {
               <Badge
                 className={`py-1 px-3 ${
                   orderDetails?.orderStatus === "confirmed"
-                  ? "bg-green-500"
-                  : orderDetails?.orderStatus === "rejected"
-                  ? "bg-red-600"
-                  : "bg-black"
+                    ? "bg-green-500"
+                    : orderDetails?.orderStatus === "rejected"
+                    ? "bg-red-600"
+                    : "bg-black"
                 }`}
               >
                 {orderDetails?.orderStatus}

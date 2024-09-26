@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
-import { Minus, Plus, Trash, Trash2 } from "lucide-react";
+import { Minus, Plus, Trash2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteCartItem,

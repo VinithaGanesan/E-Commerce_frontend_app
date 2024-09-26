@@ -9,9 +9,6 @@ import {
   WatchIcon,
 } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import ImageOne from "../../assets/Image1.jpg";
-import ImageTwo from "../../assets/frontcard.jpg";
-import ImageThree from "../../assets/Image3.webp";
 import { Card, CardContent } from "@/components/ui/card";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -90,7 +87,6 @@ export default function ShoppingHome() {
   }
 
   function handleGetProductDetails(getCurrentProductId) {
-    console.log(getCurrentProductId);
     dispatch(fetchProductDetails(getCurrentProductId));
   }
 
@@ -132,8 +128,6 @@ export default function ShoppingHome() {
   useEffect(() => {
     if (productDetails !== null) setOpenDetailsDialog(true);
   }, [productDetails]);
-
-  console.log(productList, "productList");
 
   useEffect(() => {
     dispatch(getFeatureImages());

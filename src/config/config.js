@@ -1,5 +1,3 @@
-import { BadgeCheck, LayoutDashboard, ShoppingBasket } from "lucide-react";
-
 export const registerFormControls = [
   {
     name: "userName",

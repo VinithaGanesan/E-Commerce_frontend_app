@@ -12,8 +12,7 @@ export default function StarRating({ rating, handleRatingChange }) {
           ? "text-yellow-500 hover:bg-black"
           : "text-black hover:bg-primary hover:text-primary-foreground"
       }`}
-      onClick={handleRatingChange ? () => handleRatingChange(star) : null
-      }
+      onClick={handleRatingChange ? () => handleRatingChange(star) : null}
     >
       <StarIcon
         className={`w-6 h-6 ${

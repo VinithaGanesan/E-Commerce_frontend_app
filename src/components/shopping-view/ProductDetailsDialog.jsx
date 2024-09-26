@@ -3,7 +3,6 @@ import { Dialog, DialogContent } from "../ui/dialog";
 import { Button } from "../ui/button";
 import { Separator } from "../ui/separator";
 import { Avatar, AvatarFallback } from "../ui/avatar";
-import { StarIcon } from "lucide-react";
 import { Input } from "../ui/input";
 import { setProductDetails } from "@/Redux/Reducer/shop/productSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -56,8 +55,6 @@ export default function ProductDetailsDialog({
   useEffect(() => {
     if (productDetails !== null) dispatch(getReviews(productDetails?._id));
   }, [productDetails]);
-
-  console.log(reviews);
 
   const averageReview =
     reviews && reviews.length > 0

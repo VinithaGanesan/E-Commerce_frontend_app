@@ -7,7 +7,7 @@ export default function AdminProductTile({
   setOpenCreateProductsDialog,
   setCurrentEditedId,
   product,
-  handleDelete
+  handleDelete,
 }) {
   return (
     <Card className="w-full max-w-sm mx-auto">

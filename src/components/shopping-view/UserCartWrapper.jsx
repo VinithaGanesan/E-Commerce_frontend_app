@@ -31,7 +31,7 @@ export default function UserCartWrapper({ cartItems, setOpenCartSheet }) {
           cartItems.map((item) => <UserCartItemsContent cartItem={item} />)
         ) : (
           <div className="flex flex-col justify-center items-center gap-3 font-semibold">
-            <Frown size={64}/>
+            <Frown size={64} />
             Your cart is empty!
           </div>
         )}

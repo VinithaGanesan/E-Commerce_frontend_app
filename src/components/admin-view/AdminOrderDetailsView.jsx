@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { DialogClose, DialogContent } from "../ui/dialog";
+import React, { useState } from "react";
+import { DialogContent } from "../ui/dialog";
 import { Label } from "../ui/label";
 import { Separator } from "../ui/separator";
 import CommonForm from "../common/CommonForm";
@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAllOrderofAllUsers,
   getOrderDetailsForAdmin,
-  resetOrderDetails,
   updateOrderStatus,
 } from "@/Redux/Reducer/admin/ordersSlice";
 import { useToast } from "@/hooks/use-toast";
@@ -28,13 +27,11 @@ export default function AdminOrderDetailsView({
 
   function handleUpdateStatus(e) {
     e.preventDefault();
-    console.log(formData, "formdata");
     const { status } = formData;
     if (formData.status !== "") {
       dispatch(
         updateOrderStatus({ id: orderDetails?._id, orderStatus: status })
       ).then((data) => {
-        console.log(data, "data");
         if (data?.payload?.success) {
           dispatch(getOrderDetailsForAdmin(orderDetails?._id));
           dispatch(getAllOrderofAllUsers());

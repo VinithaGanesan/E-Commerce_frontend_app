@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function UnAuthPage() {
-  return (
-    <div>You don't have access to view this page</div>
-  )
+  return <div>You don't have access to view this page</div>;
 }

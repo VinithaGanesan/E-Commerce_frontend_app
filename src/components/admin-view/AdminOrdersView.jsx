@@ -36,8 +36,6 @@ export default function AdminOrdersView() {
     if (orderDetails !== null) setOpenDetailsDialog(true);
   }, [orderDetails]);
 
-  console.log(orderDetails, "orderDetails");
-
   return (
     <Card>
       <CardHeader>

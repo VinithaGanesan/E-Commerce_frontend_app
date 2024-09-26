@@ -10,8 +10,6 @@ export default function AddressCard({
   setCurrentSelectedAddress,
   selectedId,
 }) {
-  console.log(selectedId, addressInfo?._id, "selectedId");
-
   return (
     <Card
       onClick={

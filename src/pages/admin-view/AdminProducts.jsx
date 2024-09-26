@@ -53,14 +53,11 @@ export default function AdminProducts() {
             formData,
           })
         ).then((data) => {
-          console.log(data, "edit");
-
           if (data?.payload?.success) {
             dispatch(fetchAllProducts());
             setFormData(initialFormData);
             setCurrentEditedId(null);
             setOpenCreateProductsDialog(false);
-            // setImageFile(null);
             toast({
               title: data?.payload?.message,
             });
@@ -77,7 +74,6 @@ export default function AdminProducts() {
             image: uploadedImageUrl,
           })
         ).then((data) => {
-          console.log(data);
           if (data?.payload?.success) {
             dispatch(fetchAllProducts());
             setImageFile(null);
@@ -96,9 +92,7 @@ export default function AdminProducts() {
   }
 
   function handleDelete(getCurrentProductId) {
-    console.log(getCurrentProductId);
     dispatch(deleteProduct(getCurrentProductId)).then((data) => {
-      console.log(data);
       if (data?.payload?.success) {
         dispatch(fetchAllProducts());
         toast({
@@ -122,8 +116,6 @@ export default function AdminProducts() {
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
-
-  console.log(formData, "formData");
 
   return (
     <Fragment>

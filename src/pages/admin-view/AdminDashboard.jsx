@@ -14,8 +14,6 @@ export default function AdminDashboard() {
   const { featureImageList } = useSelector((state) => state.commonFeature);
   const dispatch = useDispatch();
 
-  console.log(uploadedImageUrl);
-
   function handleUploadFeatureImage() {
     dispatch(addFeatureImage(uploadedImageUrl)).then((data) => {
       if (data?.payload?.success) {
@@ -29,8 +27,6 @@ export default function AdminDashboard() {
   useEffect(() => {
     dispatch(getFeatureImages());
   }, [dispatch]);
-
-  console.log(featureImageList);
 
   return (
     <div>

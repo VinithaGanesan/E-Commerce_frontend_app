@@ -15,7 +15,6 @@ export default function ShoppingCheckout() {
   const [currentSelectedAddress, setCurrentSelectedAddress] = useState(null);
   const [isPaymentStart, setIsPaymentStart] = useState(false);
   const dispatch = useDispatch();
-  console.log(currentSelectedAddress, "current address");
 
   const totalCartAmount =
     cartItems && cartItems?.items && cartItems?.items?.length > 0
@@ -77,10 +76,7 @@ export default function ShoppingCheckout() {
       payerId: "",
     };
 
-    console.log(orderData);
-
     dispatch(createNewOrder(orderData)).then((data) => {
-      console.log(data, "vinitha");
       if (data?.payload?.success) {
         setIsPaymentStart(true);
       } else {
@@ -90,7 +86,6 @@ export default function ShoppingCheckout() {
   }
 
   if (approvalURL) {
-    // <Navigate to {approvalURL} />
     window.location.href = approvalURL;
   }
 

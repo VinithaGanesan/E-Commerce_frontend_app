@@ -2,10 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { AlignJustify, LogOut } from "lucide-react";
 import { useDispatch } from "react-redux";
-import {
-  logoutUser,
-  resetTokenAndCredentials,
-} from "@/Redux/Reducer/auth/authSlice";
+import { resetTokenAndCredentials } from "@/Redux/Reducer/auth/authSlice";
 import { useNavigate } from "react-router-dom";
 
 export default function AdminHeader({ setOpen }) {
@@ -13,7 +10,6 @@ export default function AdminHeader({ setOpen }) {
   const navigate = useNavigate();
 
   function handleLogout() {
-    // dispatch(logoutUser());
     dispatch(resetTokenAndCredentials());
     sessionStorage.clear();
     navigate("/auth/login");

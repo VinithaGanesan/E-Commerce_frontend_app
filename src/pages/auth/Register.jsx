@@ -1,24 +1,22 @@
-import CommonForm from '@/components/common/CommonForm';
-import { registerFormControls } from '@/config/config';
-import { useToast } from '@/hooks/use-toast';
-import { registerUser } from '@/Redux/Reducer/auth/authSlice';
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom'
+import CommonForm from "@/components/common/CommonForm";
+import { registerFormControls } from "@/config/config";
+import { useToast } from "@/hooks/use-toast";
+import { registerUser } from "@/Redux/Reducer/auth/authSlice";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 
 const initialState = {
-  userName: '',
-  email: '',
-  password: '',
-}
+  userName: "",
+  email: "",
+  password: "",
+};
 
 export default function Register() {
-
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { toast } = useToast()
-
+  const { toast } = useToast();
 
   function onSubmit(e) {
     e.preventDefault();
@@ -26,39 +24,40 @@ export default function Register() {
       if (data?.payload?.success) {
         toast({
           title: data?.payload?.message,
-        })
-        navigate('/auth/login')
+        });
+        navigate("/auth/login");
       } else {
         toast({
           title: data?.payload?.message,
-          variant: 'destructive'
-        })
+          variant: "destructive",
+        });
       }
-    })
-
+    });
   }
 
   return (
-    <div className='mx-auto w-full max-w-md space-y-6'>
-      <div className='text-center'>
-        <h1 className='text-3xl font-bold tracking-tight text-foreground'>Create new accout</h1>
-        <p className='mt-2'>
+    <div className="mx-auto w-full max-w-md space-y-6">
+      <div className="text-center">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">
+          Create new accout
+        </h1>
+        <p className="mt-2">
           Already have an account?
           <Link
-            className='font-medium ml-2 text-primary hover:underline'
-            to='/auth/login'
-          >Login</Link>
+            className="font-medium ml-2 text-primary hover:underline"
+            to="/auth/login"
+          >
+            Login
+          </Link>
         </p>
       </div>
       <CommonForm
         formControls={registerFormControls}
-        buttonText={'Create Account'}
+        buttonText={"Create Account"}
         formData={formData}
         setFormData={setFormData}
         onSubmit={onSubmit}
       />
-
-
     </div>
-  )
+  );
 }
